@@ -1,0 +1,141 @@
+.elevator-container {
+  width: 35%;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.elevator-container h2 {
+  width: 30%;
+  height: 10%;
+  background-color: rgb(79, 79, 79);
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 60px;
+  border-radius: 10px;
+}
+
+.elevator {
+  width: 100%;
+  height: 90%;
+  background-color: #575757;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  border-top: 10px solid #bababa;
+  border-left: 10px solid #bababa;
+  border-right: 10px solid #bababa;
+  border-bottom: 2px solid #bababa;
+  z-index: 0;
+}
+
+.elevator::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  background-color: #ffffff;
+  clip-path: polygon(0 100%, 10% 0, 90% 0, 100% 100%);
+  z-index: -2;
+}
+
+.elevator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  background-color: #939393;
+  clip-path: polygon(0 0, 10% 100%, 90% 100%, 100% 0);
+  z-index: -2;
+}
+
+.wall {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 80%;
+  height: 70%;
+  background-color: #303030;
+  z-index: -4;
+}
+
+.close-left,
+.close-right,
+.open-left,
+.open-right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(
+    to bottom right,
+    #98988f,
+    #d9d9d9,
+    #98988f,
+    #98988f
+  );
+  top: 0;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.close-left,
+.open-left {
+  border-right: 1px solid black;
+}
+
+.close-right,
+.open-right {
+  border-left: 1px solid black;
+}
+
+.close-left {
+  left: 0;
+  transition: left 1s linear;
+}
+
+.close-right {
+  right: 0;
+  transition: right 1s linear;
+}
+
+.open-left {
+  left: -100%;
+  transition: left 1s linear;
+}
+
+.open-right {
+  right: -100%;
+  transition: right 1s linear;
+}
+
+@keyframes left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}

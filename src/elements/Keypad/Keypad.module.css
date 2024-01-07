@@ -1,0 +1,99 @@
+.botonera {
+  width: 48%;
+  height: 85vh;
+  padding: 2%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background: linear-gradient(
+    to bottom right,
+    #98988f,
+    #d9d9d9,
+    #98988f,
+    #98988f
+  );
+  border-radius: 10px;
+  position: relative;
+}
+
+.buton-container {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(79, 79, 79);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.buton {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(79, 79, 79);
+  border-radius: 50%;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  border: none;
+  box-shadow: 0 0 0 2.5px white;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.buton:hover {
+  box-shadow: 0 0 0 2.5px rgb(71, 255, 68);
+  color: rgb(71, 255, 68);
+}
+
+.tornillo {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom left, #98988f, #d9d9d9, #98988f);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.tornillo::after {
+  content: '';
+  width: 50%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.tornillo::before {
+  content: '';
+  width: 50%;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  transform: rotate(-45deg);
+}
+
+.tornillo:nth-child(1) {
+  top: 1%;
+  left: 1%;
+}
+
+.tornillo:nth-child(2) {
+  top: 1%;
+  right: 1%;
+}
+
+.tornillo:nth-child(3) {
+  bottom: 1%;
+  left: 1%;
+}
+
+.tornillo:nth-child(4) {
+  bottom: 1%;
+  right: 1%;
+}

@@ -1,0 +1,134 @@
+.section {
+  background-color: #272c34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 180px;
+  height: 180px;
+  background-color: white;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  animation: container 4s ease-in-out infinite;
+}
+
+.sol {
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  bottom: 22px;
+  left: -34px;
+  border-radius: 50%;
+  background-color: #ffef00;
+  transform-origin: 124px;
+  animation: sol 4s ease-in-out infinite;
+  z-index: 10;
+}
+
+.piramide-lado-izq {
+  width: 116px;
+  height: 57px;
+  position: absolute;
+  left: 35px;
+  bottom: 56px;
+  background-color: #f4f4f4;
+  clip-path: polygon(0% 100%, 100% 100%, 50% 0%);
+  animation: piramide 4s ease-in-out infinite reverse;
+  z-index: 8;
+}
+
+.piramide-lado-der {
+  width: 58px;
+  height: 57px;
+  position: absolute;
+  left: 93px;
+  bottom: 56px;
+  background-color: #dddada;
+  clip-path: polygon(30% 100%, 100% 100%, 0% 0%);
+  animation: piramide 4s ease-in-out infinite;
+  z-index: 9;
+}
+
+.cielo {
+  width: 100%;
+  height: 124px;
+  background-color: #7ddffc;
+  position: absolute;
+  top: 0;
+}
+
+.arena {
+  width: 100%;
+  height: 56px;
+  background-color: #f0de75;
+  position: absolute;
+  bottom: 0;
+}
+
+.sombra {
+  width: 150%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  clip-path: polygon(35px 0, 180px 10px, 151px 0);
+  animation: sombra 4s ease-in-out infinite;
+}
+
+@keyframes container {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes sol {
+  0% {
+    transform: rotate(0);
+  }
+  30% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes piramide {
+  0% {
+    background-color: #272c34;
+  }
+  30% {
+    background-color: #dddada;
+  }
+  70% {
+    background-color: #f4f4f4;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}
+
+@keyframes sombra {
+  0% {
+    clip-path: polygon(35px 0, 270px 10px, 151px 0);
+  }
+  30% {
+    clip-path: polygon(35px 0, 180px 30px, 151px 0);
+  }
+  100% {
+    clip-path: polygon(35px 0, -270px 10px, 151px 0);
+  }
+}

@@ -1,24 +1,68 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { floors } from './Data/floor';
+import Keypad from './elements/Keypad/Keypad';
+import Elevator from './elements/Elevator/Elevator';
 
 function App() {
+  const [floor, setFloor] = useState(1);
+  const [floorComponent, setFloorComponent] = useState(floors[0]);
+  const [targetFloor, setTargetFloor] = useState(1);
+  const [doorClosed, setDoorClosed] = useState(false);
+  const [changeFloor, setChangeFloor] = useState(false);
+
+  useEffect(() => {
+    let intervalId;
+
+    if (floor !== targetFloor) {
+      if (!doorClosed) {
+        setDoorClosed(true);
+        setTimeout(() => {
+          intervalId = setInterval(() => {
+            if (floor < targetFloor) {
+              setFloor((prevFloor) => {
+                const newFloor = prevFloor + 1;
+                if (newFloor === targetFloor) {
+                  clearInterval(intervalId);
+                  setDoorClosed(false);
+                }
+                return newFloor;
+              });
+            } else if (floor > targetFloor) {
+              setFloor((prevFloor) => {
+                const newFloor = prevFloor - 1;
+                if (newFloor === targetFloor) {
+                  clearInterval(intervalId);
+                  setDoorClosed(false);
+                }
+                return newFloor;
+              });
+            } else {
+              clearInterval(intervalId);
+            }
+          }, 100);
+
+          setFloorComponent(floors[targetFloor - 1]);
+        }, 1000);
+      }
+    }
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [floor, targetFloor, doorClosed]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div className='general-container'>
+        <Keypad targetFloor={targetFloor} setTargetFloor={setTargetFloor} />
+        <Elevator
+          floor={floor}
+          floorComponent={floorComponent}
+          doorClosed={doorClosed}
+        />
+      </div>
+    </main>
   );
 }
 
