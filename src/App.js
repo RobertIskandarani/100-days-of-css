@@ -9,7 +9,6 @@ function App() {
   const [floorComponent, setFloorComponent] = useState(floors[0]);
   const [targetFloor, setTargetFloor] = useState(1);
   const [doorClosed, setDoorClosed] = useState(false);
-  const [changeFloor, setChangeFloor] = useState(false);
 
   useEffect(() => {
     let intervalId;
