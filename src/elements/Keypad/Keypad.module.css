@@ -43,8 +43,8 @@
 }
 
 .buton:hover {
-  box-shadow: 0 0 0 2.5px rgb(71, 255, 68);
-  color: rgb(71, 255, 68);
+  box-shadow: 0 0 0 2.5px rgb(0, 255, 166);
+  color: rgb(0, 255, 166);
 }
 
 .tornillo {
