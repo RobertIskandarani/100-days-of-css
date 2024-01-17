@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/100-days-of-css/static/css/main.c33798ee.css",
+    "main.js": "/100-days-of-css/static/js/main.483acd75.js",
+    "static/media/Digital7Mono-Yz9J4.ttf": "/100-days-of-css/static/media/Digital7Mono-Yz9J4.d60dc6e509634f05c9b3.ttf",
+    "static/media/day6.jpeg": "/100-days-of-css/static/media/day6.b3a413bef3f2a2d57adf.jpeg",
+    "index.html": "/100-days-of-css/index.html",
+    "main.c33798ee.css.map": "/100-days-of-css/static/css/main.c33798ee.css.map",
+    "main.483acd75.js.map": "/100-days-of-css/static/js/main.483acd75.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c33798ee.css",
+    "static/js/main.483acd75.js"
+  ]
+}
